@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Somador</title>
+    <title>M3dia</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Somador de Números</h1>
+    <h1>Media estudantil</h1>
     <form method="POST">
-        <input type="number" name="num1" placeholder="Número 1" required>
-        <input type="number" name="num2" placeholder="Número 2" required>
-        <button type="submit">Somar</button>
+        <input type="number" name="nota1" step="0.01" placeholder="Nota da 1 unidade" required>
+        <input type="number" name="nota2" step="0.01" placeholder="Nota da 2 unidade" required>
+        <button type="submit">Fazer media</button>
     </form>
     {% if resultado is not none %}
         <h2>Resultado: {{ resultado }}</h2>
+        <h2> {{ mensagem  }}</h2>
     {% endif %}
 </body>
 </html>
