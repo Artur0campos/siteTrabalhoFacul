@@ -5,11 +5,18 @@ app = Flask(__name__)
 @app.route("/", methods=["GET", "POST"])
 def index():
     resultado = None
+    mensagem = ""
     if request.method == "POST":
-        num1 = int(request.form.get("num1", 0))
-        num2 = int(request.form.get("num2", 0))
-        resultado = num1 + num2
-    return render_template("index.html", resultado=resultado)
+        nota1 = float(request.form.get("nota1", 0))
+        nota2 = float(request.form.get("nota2", 0))
+        resultado = (nota1 + nota2)/2
+        
+        if resultado >= 7 :
+            mensagem = "Parabens você passou!"
+        else:
+            mensagem = "te vejo na final!"
+    
+    return render_template("index.html", resultado=resultado, mensagem = mensagem)
 
 if __name__ == "__main__":
     app.run(debug=True)
